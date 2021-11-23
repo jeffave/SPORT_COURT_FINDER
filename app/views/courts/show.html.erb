@@ -1,0 +1,15 @@
+<h1> <%= @court.name %> </h1>
+<ul>
+  <li> LOCALIZACÃO: <%= @court.location %> </li>
+  <li> DISPONIVEL: <%= @court.availability ? "Disponivel" : "Não Disponivel" %> </li>
+  <li> PREÇO: R$ <%= @court.pricing %> </li>
+  <li> CAPACIDADE: <%= @court.capacity %> </li>
+</ul>
+
+<%= link_to "Edit", edit_court_path(@court) %>
+<%= link_to "Delete",
+            court_path(@court),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+
+<%= link_to "Back to Courts", courts_path %>

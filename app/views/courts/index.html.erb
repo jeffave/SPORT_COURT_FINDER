@@ -1,7 +1,9 @@
-<h1> this is the courts index </h1>
+<h1> COURTS </h1>
 
 <ul>
 <% @courts.each do |court| %>
-  <li><%= court.name %></li>
+  <li><%= link_to court.name, court_path(court) %></li>
 <% end %>
 </ul>
+
+<%= link_to "Add a court!", new_court_path %>
