@@ -15,6 +15,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
