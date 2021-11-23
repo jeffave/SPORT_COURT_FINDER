@@ -6,3 +6,7 @@
   <%= f.number_field :capacity  %>
   <%= f.submit %>
 <% end %>
+
+<% if policy(Court).create? %>
+  <%= link_to "New court", new_court_path %>
+<% end %>

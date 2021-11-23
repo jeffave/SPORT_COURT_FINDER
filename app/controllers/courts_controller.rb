@@ -8,6 +8,7 @@ class CourtsController < ApplicationController
 
   def new
     @court = Court.new
+    authorize @court
   end
 
   def create
