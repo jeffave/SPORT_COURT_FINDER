@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   # This is our landing page
   root to: 'pages#home'
   # We're using all our routes for courts
-  resources :courts
+  resources :courts do
+    resources :reservations, only: [:new, :destroy]
+  end
+  resources :reservations, only: [:create]
 end

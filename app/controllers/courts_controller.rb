@@ -28,9 +28,10 @@ class CourtsController < ApplicationController
   end
 
   def update
+    @court.availability = ActiveModel::Type::Boolean.new.cast(params[:court][:availability])
     @court.update(court_params)
     if @court.save!
-      redirect_to courts_path
+      redirect_to court_path(@court)
     else
       render :edit
     end
