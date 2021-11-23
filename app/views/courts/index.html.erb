@@ -1,1 +1,7 @@
 <h1> this is the courts index </h1>
+
+<ul>
+<% @courts.each do |court| %>
+  <li><%= court.name %></li>
+<% end %>
+</ul>
