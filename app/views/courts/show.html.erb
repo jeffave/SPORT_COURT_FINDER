@@ -6,6 +6,27 @@
   <li> CAPACIDADE: <%= @court.capacity %> </li>
 </ul>
 
+<ul>
+<% @reservations.each do |reservation| %>
+  <% @users.each do |user| %>
+  <% if reservation.user_id == user.id %>
+  <li> <%= user.first_name %> booked here to <%= reservation.date %>
+        <%= link_to "Delete",
+            reservation_path(reservation),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+  </li>
+  <% end %>
+  <% end %>
+<% end %>
+</ul>
+
+<%= simple_form_for([@court, @reservation]) do |f| %>
+  <%= f.input :date %>
+  <%= f.submit %>
+<% end %>
+
+
 <%= link_to "Edit", edit_court_path(@court) %>
 <%= link_to "Delete",
             court_path(@court),

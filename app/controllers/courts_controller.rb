@@ -6,6 +6,11 @@ class CourtsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @reservation = Reservation.new
+    @reservation.court = @court
+    @reservations = Reservation.where(court_id: @court.id)
+    @users = User.all
   end
 
   def new

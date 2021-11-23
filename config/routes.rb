@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # We're using all our routes for courts
   resources :courts do
-    resources :reservations, only: [:new, :destroy]
+    resources :reservations, only: [:create]
   end
-  resources :reservations, only: [:create]
+  resources :reservations, only: [:destroy]
 end
