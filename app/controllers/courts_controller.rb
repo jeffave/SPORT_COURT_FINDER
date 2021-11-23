@@ -1,4 +1,6 @@
 class CourtsController < ApplicationController
+  before_action :set_court, only: [:show, :edit, :update, :destroy]
+
   def index
     @courts = Court.all
   end
@@ -26,15 +28,26 @@ class CourtsController < ApplicationController
   end
 
   def update
+    @court.update(court_params)
+    if @court.save!
+      redirect_to courts_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @court.destroy
+    redirect_to courts_path
   end
 
   private
 
+  def set_court
+    @court = Court.find(params[:id])
+  end
+
   def court_params
     params.require(:court).permit(:name, :location, :availabity, :pricing, :capacity)
   end
-
 end
