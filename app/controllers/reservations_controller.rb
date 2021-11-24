@@ -23,6 +23,4 @@ class ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:date)
   end
-
-
 end
