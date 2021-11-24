@@ -1,16 +1,16 @@
 <h1> <%= @court.name %> </h1>
 <ul>
-  <li> LOCALIZACÃO: <%= @court.location %> </li>
-  <li> DISPONIVEL: <%= @court.availability ? "Disponivel" : "Não Disponivel" %> </li>
-  <li> PREÇO: R$ <%= @court.pricing %> </li>
-  <li> CAPACIDADE: <%= @court.capacity %> </li>
+  <li> LOCATION: <%= @court.location %> </li>
+  <li> <%= @court.availability ? "AVAILABLE" : "NOT AVAILABLE" %> </li>
+  <li> PRICE: R$ <%= @court.pricing %> </li>
+  <li> CAPACITY: <%= @court.capacity %> </li>
 </ul>
 
 <ul>
 <% @reservations.each do |reservation| %>
   <% @users.each do |user| %>
   <% if reservation.user_id == user.id %>
-  <li> <%= user.first_name %> booked here to <%= reservation.date %>
+  <li><%= user.first_name %> booked <%= @court.name %> on<%= reservation.date %>
         <% if policy(reservation).destroy? %>
         <%= link_to "Delete",
             reservation_path(reservation),
@@ -24,7 +24,7 @@
 </ul>
 
 <%= simple_form_for([@court, @reservation]) do |f| %>
-  <%= f.input :date %>
+  <%= f.input :date, required: true %>
   <%= f.submit %>
 <% end %>
 
