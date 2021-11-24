@@ -22,7 +22,7 @@
 </ul>
 
 <%= simple_form_for([@court, @reservation]) do |f| %>
-  <%= f.input :date %>
+  <%= f.input :date, required: true %>
   <%= f.submit %>
 <% end %>
 
