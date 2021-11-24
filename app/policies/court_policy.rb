@@ -9,3 +9,12 @@ class CourtPolicy < ApplicationPolicy
     return true
   end
 end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
+end
