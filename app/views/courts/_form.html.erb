@@ -1,8 +1,8 @@
 <%= simple_form_for(court) do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
+  <%= f.input :pricing %>
+  <%= f.input :capacity %>
   <%= f.input :availability, as: :boolean, checked_value: true, unchecked_value: false %>
-  <%= f.number_field :pricing  %>
-  <%= f.number_field :capacity  %>
-  <%= f.submit %>
+  <%= f.submit class: "btn-success text-light p-2 shadow-none" %>
 <% end %>

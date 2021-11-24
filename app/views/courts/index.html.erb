@@ -1,11 +1,17 @@
-<h1> COURTS </h1>
+<%= render 'shared/navbar' %>
 
-<ul>
-<% @courts.each do |court| %>
-  <li><%= link_to court.name, court_path(court) %></li>
-<% end %>
-</ul>
+<main class="d-flex justify-content-center align-items-center">
+  <section>
+    <h1> COURTS </h1>
 
-<% if policy(Court).new? %>
-<%= link_to "Add a court!", new_court_path %>
-<% end %>
+    <ul class="p-0 my-5">
+    <% @courts.each do |court| %>
+      <li><%= link_to court.name, court_path(court) %></li>
+    <% end %>
+    </ul>
+
+    <% if policy(Court).new? %>
+    <%= link_to "Add a court!", new_court_path, class: "btn-primary p-3" %>
+    <% end %>
+  </section>
+</main>

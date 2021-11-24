@@ -1,9 +1,24 @@
+<%= render 'shared/navbar' %>
+
+<main>
 <h1> <%= @court.name %> </h1>
+
+<% if policy(@court).edit? %>
+  <%= link_to "Edit", edit_court_path(@court) %>
+<% end %>
+
+<% if policy(@court).destroy? %>
+<%= link_to "Delete",
+            court_path(@court),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<% end %>
+
 <ul>
-  <li> LOCATION: <%= @court.location %> </li>
-  <li> <%= @court.availability ? "AVAILABLE" : "NOT AVAILABLE" %> </li>
-  <li> PRICE: R$ <%= @court.pricing %> </li>
-  <li> CAPACITY: <%= @court.capacity %> </li>
+  <li class="availability"> <%= @court.availability ? "AVAILABLE" : "NOT AVAILABLE" %> </li>
+  <li> <strong> Location: </strong> <%= @court.location %> </li>
+  <li> <strong>Capacity:</strong> <%= @court.capacity %> </li>
+  <li> <strong>Price: </strong> R$ <%= @court.pricing %> </li>
 </ul>
 
 <ul>
@@ -26,18 +41,6 @@
 <%= simple_form_for([@court, @reservation]) do |f| %>
   <%= f.input :date, as: :date, html5: true %>
   <%= f.input :end_date, as: :date, html5: true %>
-  <%= f.submit %>
+  <%= f.submit class: "btn-success text-light p-2 shadow-none" %>
 <% end %>
-
-<% if policy(@court).edit? %>
-  <%= link_to "Edit", edit_court_path(@court) %>
-<% end %>
-
-<% if policy(@court).destroy? %>
-<%= link_to "Delete",
-            court_path(@court),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-<% end %>
-
-<%= link_to "Back to Courts", courts_path %>
+</main>

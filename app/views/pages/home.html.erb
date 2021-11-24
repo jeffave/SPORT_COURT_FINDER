@@ -1,3 +1,11 @@
-<div class="container">
-  <%=image_tag("logo.jpg", id:"logo")%>
-</div>
+<main class="container d-flex justify-content-center align-items-center vh-100">
+  <section>
+    <div>
+      <%=image_tag("logo.jpg", id:"logo")%>
+    </div>
+
+    <div class="btn btn-success my-5">
+      <%= link_to "Login!", new_user_session_path, class: "text-light" %>
+    </div>
+  </section>
+</main>
