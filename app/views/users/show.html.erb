@@ -1,0 +1,11 @@
+<%= render 'shared/navbar' %>
+
+<ul>
+<% @reservations.each do |reservation|%>
+  <% @users.each do |user| %>
+  <% if user.id == reservation.user_id %>
+  <li> <strong> You </strong> booked <strong> <%= reservation.court.name %> from <%= reservation.date %> to <%= reservation.end_date %>  </strong> </li>
+  <% end %>
+  <% end %>
+<% end %>
+</ul>
