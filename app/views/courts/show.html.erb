@@ -10,7 +10,7 @@
 <% @reservations.each do |reservation| %>
   <% @users.each do |user| %>
   <% if reservation.user_id == user.id %>
-  <li><%= user.first_name %> booked <%= @court.name %> on<%= reservation.date %>
+  <li><%= user.first_name %> booked <%= @court.name %> from <%= reservation.date %> to <%= reservation.end_date %>
         <% if policy(reservation).destroy? %>
         <%= link_to "Delete",
             reservation_path(reservation),
@@ -24,7 +24,8 @@
 </ul>
 
 <%= simple_form_for([@court, @reservation]) do |f| %>
-  <%= f.input :date, required: true %>
+  <%= f.input :date, as: :date, html5: true %>
+  <%= f.input :end_date, as: :date, html5: true %>
   <%= f.submit %>
 <% end %>
 
