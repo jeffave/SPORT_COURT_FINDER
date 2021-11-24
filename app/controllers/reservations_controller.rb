@@ -5,6 +5,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
     @reservation.court = @court
+    authorize @reservation
     if @reservation.save!
       redirect_to court_path(@court)
     else
@@ -13,6 +14,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    authorize @reservation
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to court_path(@reservation.court)
