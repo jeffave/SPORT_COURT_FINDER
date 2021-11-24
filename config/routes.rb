@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get '/user' => "users#show", :as => :user_root
   # We're using all our routes for courts
 
-  resources :users, only: [:show] do
-  end
+  resources :users, only: [:show]
 
   resources :courts do
     resources :reservations, only: [:create]
