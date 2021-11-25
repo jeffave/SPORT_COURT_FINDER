@@ -60,6 +60,6 @@ class CourtsController < ApplicationController
   end
 
   def court_params
-    params.require(:court).permit(:name, :location, :availabity, :pricing, :capacity)
+    params.require(:court).permit(:name, :location, :availabity, :pricing, :capacity, :photo)
   end
 end
