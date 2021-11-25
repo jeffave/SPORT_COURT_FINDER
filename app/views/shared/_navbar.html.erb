@@ -1,21 +1,25 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+     <%= image_tag "https://res.cloudinary.com/db7q8jblt/image/upload/v1637864527/development/logo_vsn5eu.jpg", id: "logo" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+<div class="nav-item active">
+<%= link_to "Browse Courts", courts_path, class: "nav-link text-dark" %>
+</div>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto flex align-items-center">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Courts", courts_path, class: "nav-link" %>
+        <li class="nav-item active mr-2">
+          Hi, <%= current_user.first_name %>!
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/480px-Mr._Smiley_Face.svg.png", class: "avatar dropdown-toggle opacity-0", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Your reservations", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Add a court", new_court_path, class: "dropdown-item" %>
