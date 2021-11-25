@@ -6,6 +6,13 @@ class CourtsController < ApplicationController
     # @courts = Court.all
     # nós iremos chamar em nosso court_policy.rb o metodo resolve, que retorna scope.all ( o mesmo que Court.all)
     @courts = policy_scope(Court)
+
+    @markers = @courts.geocoded.map do |court|
+      {
+        lat: court.latitude,
+        lng: court.longitude
+      }
+    end
   end
 
   def show

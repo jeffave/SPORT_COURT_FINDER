@@ -4,6 +4,12 @@
   <section>
     <h1> COURTS </h1>
 
+      <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
     <ul class="p-0 my-5">
     <% @courts.each do |court| %>
       <li>
