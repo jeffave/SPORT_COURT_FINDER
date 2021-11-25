@@ -16,7 +16,14 @@
 
 <ul>
   <li> <%= cl_image_tag @court.photo.key, height: 300, width: 400 %> </li>
-  <li> <strong> Location: </strong> <%= @court.location %> </li>
+  <li> <strong> Location: </strong> <%= @court.location %>
+  <div class="d-flex justify-content-center align-items-center">
+  <div class="w-50"  id="map"
+     style="height: 400px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </li>
+  </div>
   <li> <strong>Capacity:</strong> <%= @court.capacity %> </li>
   <li> <strong>Price: </strong> R$ <%= @court.pricing %> </li>
 </ul>
