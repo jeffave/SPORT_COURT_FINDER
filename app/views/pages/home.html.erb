@@ -5,7 +5,11 @@
     </div>
 
     <div class="btn btn-success my-5">
+      <% if user_signed_in? %>
+      <%= link_to "Enter!", user_path(current_user), class: "text-light" %>
+      <% else %>
       <%= link_to "Login!", new_user_session_path, class: "text-light" %>
+      <% end %>
     </div>
   </section>
 </main>
