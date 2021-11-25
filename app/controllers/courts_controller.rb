@@ -14,6 +14,14 @@ class CourtsController < ApplicationController
     @reservation.court = @court
     @reservations = Reservation.where(court_id: @court.id)
     @users = User.all
+
+    @courts = Court.all
+    @markers = @courts.geocoded.map do |court|
+      {
+        lat: court.latitude,
+        lng: court.longitude
+      }
+    end
   end
 
   def new
