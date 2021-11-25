@@ -2,13 +2,18 @@
 
 <main class="d-flex justify-content-center align-items-center">
   <section>
-    <h1> COURTS </h1>
-
-    <ul class="p-0 my-5">
+    <ul class="p-0 my-5 d-flex w-80 flex-wrap justify-content-center">
     <% @courts.each do |court| %>
       <li>
-      <%= cl_image_tag court.photo.key, height: 300, width: 400 %>
-      <%= link_to court.name, court_path(court) %>
+      <div class='p-3 m-4 border rounded'>
+        <div class="upper">
+          <%= cl_image_tag court.photo.key, height: 300, width: 400 %>
+        </div>
+        <div class="lower text-left my-3">
+          <h4> <%= link_to court.name, court_path(court), class: "text-dark"  %> </h3>
+          <p class="text-dark"> R$<%= court.pricing %>0 </p>
+        </div>
+      </div>
       </li>
     <% end %>
     </ul>
