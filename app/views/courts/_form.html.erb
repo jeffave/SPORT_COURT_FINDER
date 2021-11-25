@@ -3,6 +3,7 @@
   <%= f.input :location %>
   <%= f.input :pricing %>
   <%= f.input :capacity %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :availability, as: :boolean, checked_value: true, unchecked_value: false %>
   <%= f.submit class: "btn-success text-light p-2 shadow-none" %>
 <% end %>

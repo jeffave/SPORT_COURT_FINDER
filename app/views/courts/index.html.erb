@@ -6,7 +6,10 @@
 
     <ul class="p-0 my-5">
     <% @courts.each do |court| %>
-      <li><%= link_to court.name, court_path(court) %></li>
+      <li>
+      <%= cl_image_tag court.photo.key, height: 300, width: 400 %>
+      <%= link_to court.name, court_path(court) %>
+      </li>
     <% end %>
     </ul>
 

@@ -16,6 +16,7 @@
 
 <ul>
   <li class="availability"> <%= @court.availability ? "AVAILABLE" : "NOT AVAILABLE" %> </li>
+  <li> <%= cl_image_tag @court.photo.key, height: 300, width: 400 %> </li>
   <li> <strong> Location: </strong> <%= @court.location %> </li>
   <li> <strong>Capacity:</strong> <%= @court.capacity %> </li>
   <li> <strong>Price: </strong> R$ <%= @court.pricing %> </li>
