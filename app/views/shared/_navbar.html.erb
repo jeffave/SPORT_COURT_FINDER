@@ -1,4 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+
+  <div class="nav-item active">
+  <%= link_to "Browse Courts", courts_path, class:  "btn-primary p-3" %>
+  </div>
+
   <%= link_to "#", class: "navbar-brand" do %>
      <%= image_tag "https://res.cloudinary.com/db7q8jblt/image/upload/v1637864527/development/logo_vsn5eu.jpg", id: "logo" %>
   <% end %>
@@ -6,11 +12,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-<div class="nav-item active">
-<%= link_to "Browse Courts", courts_path, class: "nav-link text-dark" %>
-</div>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto flex align-items-center">
