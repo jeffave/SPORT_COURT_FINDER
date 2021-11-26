@@ -16,10 +16,10 @@ class CourtsController < ApplicationController
     @users = User.all
 
     @courts = Court.all
-    @markers = @courts.geocoded.map do |court|
+    @markers = @court.geocode.map do |court|
       {
-        lat: court.latitude,
-        lng: court.longitude
+        lat: @court.latitude,
+        lng: @court.longitude
       }
     end
   end
