@@ -2,6 +2,7 @@
 
 <main class="mb-4">
 <h1> <%= @court.name %> </h1>
+<h2> by  <%= link_to @court.user.first_name, user_path(@court.user) %> </h2>
 
 <% if policy(@court).edit? %>
   <%= link_to "Edit", edit_court_path(@court) %>
