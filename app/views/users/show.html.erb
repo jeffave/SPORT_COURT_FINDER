@@ -1,14 +1,12 @@
 <%= render 'shared/navbar' %>
 
-<h2> Hi <%= @user.first_name %>, welcome back </h2>
+<h2> <%= @user.first_name %></h2>
 
-<h3> Your reservations: </h3>
+<h3> Reservations: </h3>
 <ul>
 <% @reservations.each do |reservation|%>
-  <% @users.each do |user| %>
-  <% if user.id == reservation.user_id %>
-  <li> <strong> You </strong> booked <%= reservation.court.name %> from <%= reservation.date %> to <%= reservation.end_date %>  </strong> </li>
-  <% end %>
+  <% if @user.id == reservation.user_id %>
+  <li> <strong> <%= @user.first_name %> </strong> booked <%= reservation.court.name %> from <%= reservation.start_date %> to <%= reservation.end_date %>  </strong> </li>
   <% end %>
 <% end %>
 </ul>
