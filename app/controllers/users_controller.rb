@@ -4,9 +4,7 @@ class UsersController < ApplicationController
     @users = User.all
     @reservations = Reservation.all
     @courts = Court.all
-
-
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     authorize @user
   end
 
